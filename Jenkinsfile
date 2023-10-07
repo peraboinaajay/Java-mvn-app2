@@ -1,13 +1,8 @@
 pipeline {
-    agent { label 'javabuildserver' }
+    agent any
 	
 
-    tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-	jdk "aws_open_jdk"
-        maven "slave_maven"
-    }
-
+    
 	environment {	
 		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
 	} 
