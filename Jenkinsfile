@@ -22,15 +22,15 @@ pipeline {
         stage("Docker build"){
             steps {
 				sh 'docker version'
-				sh "docker build -t loksaieta/loksai-eta-app:${BUILD_NUMBER} ."
+				sh "docker build -t ajayperaboina/java-docker-hub:${BUILD_NUMBER} ."
 				sh 'docker image list'
-				sh "docker tag loksaieta/loksai-eta-app:${BUILD_NUMBER} loksaieta/loksai-eta-app:latest"
+				sh "docker tag ajayperaboina/java-docker-hub:${BUILD_NUMBER} ajayperaboina/java-docker-hub:latest"
             }
         }
 		stage('Login2DockerHub') {
 
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				sh 'echo "Peraboin@85" | docker login -u ajayperaboina --password-stdin'
 			}
 		}
         stage('Approve - push Image to dockerhub'){
