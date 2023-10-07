@@ -21,13 +21,10 @@ pipeline {
 		}
         stage("Docker build"){
             steps {
-				sh 'docker version'
-				sh "docker build -t ajayperaboina/java-docker-hub:${BUILD_NUMBER} ."
-				sh 'docker image list'
-				sh "docker tag ajayperaboina/java-docker-hub:${BUILD_NUMBER} ajayperaboina/java-docker-hub:latest"
+				 sh 'docker build -t ajayperaboina/django-docker-hub .'
             }
         }
-		stage('Login2DockerHub') {
+		stage('Login') {
 
 			steps {
 				sh 'echo "Peraboin@85" | docker login -u ajayperaboina --password-stdin'
