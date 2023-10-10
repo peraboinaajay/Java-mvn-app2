@@ -1,10 +1,15 @@
 pipeline {
-    agent any
-	
+    agent {
+        label 'maven'
+    }
+	tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "maven"
+    }
     
-	environment {	
-		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
-	} 
+	//environment {	
+	//	DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	//} 
     
     stages {
         stage('SCM Checkout') {
@@ -21,7 +26,7 @@ pipeline {
 		}
         stage("Docker build"){
             steps {
-				 sh 'docker build -t ajayperaboina/django-docker-hub .'
+				 sh 'docker build -t ajayperaboina/java-docker-hub .'
             }
         }
 		stage('Login') {
