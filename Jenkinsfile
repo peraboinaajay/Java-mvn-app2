@@ -44,7 +44,7 @@ pipeline {
     //     sh 'kubectl apply -f deploy.yaml'
     //   }
     // }
-  
+    }  
         post {
            always {
                sh 'docker logout'
@@ -90,6 +90,6 @@ pipeline {
 		//sshPublisher(publishers: [sshPublisherDesc(configName: 'kubernetescluster', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f k8smvndeployment.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 		//}
           //  }
-	}
+	
 
 }
