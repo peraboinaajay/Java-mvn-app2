@@ -27,7 +27,8 @@ pipeline {
 		}
         stage("Docker build"){
             steps {
-				 sh 'docker build -t ajayperaboina/java-docker-hub .'
+				 sh "ls"
+                 sh 'docker build -t ajayperaboina/java-docker-hub .'
             }
         }
          stage('Login') {
